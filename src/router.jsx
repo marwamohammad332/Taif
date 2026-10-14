@@ -15,6 +15,7 @@ import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import SendCode from "./pages/SendCode/SendCode";
 import Mainlayout from "./component/MainLayOut";
+import AuthLayout from "./component/AuthLayout";
 
 
 
@@ -44,9 +45,6 @@ const router = createBrowserRouter([
                 path: 'Favorites',
                 element: <Favorites />
             }, {
-                path: 'Login',
-                element: <Login />
-            }, {
                 path: 'OrderConfermation',
                 element: <OrderConfermation />
             }, {
@@ -59,19 +57,27 @@ const router = createBrowserRouter([
                 path: 'ProfileMyOrder',
                 element: <ProfileMyOrder />
             }, {
-                path: 'Register',
-                element: <Register />
-            }, {
-                path: 'ResetPassword',
-                element: <ResetPassword />
-            }, {
                 path: 'SearchResult',
                 element: <SearchResult />
-            }, {
-                path: 'SendCode',
-                element: <SendCode />
             }
-
+        ]
+    },
+    {
+        element: <AuthLayout />,
+        children:[
+            {
+                path:'/Login',
+                element: <Login />
+            },{
+                path:'/Register',
+                element: <Register />
+            },{
+                path:'/SendCode',
+                element: <SendCode />
+            },{
+                path:'/ResetPassword',
+                element: <ResetPassword />
+            }
         ]
     }
 

@@ -29,7 +29,7 @@ export default function Login() {
 
 
   const {
-    login,
+    register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting, dirtyFields },
@@ -45,11 +45,11 @@ export default function Login() {
     try {
       const response = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/Login', data);
       setSuccess(true);
-      navigate('/ProfileMyOrder');
+      navigate('/Home');
     } catch (err) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       console.log(err.response);
-      setServerError('Registration Failed');
+      setServerError('Login Failed');
     }
   };
   
@@ -88,6 +88,7 @@ export default function Login() {
               </Typography>
             </Box>
             {serverError ? <Alert severity="error" sx={{ mb: 2, width: '100%' }}>{serverError}</Alert> : null}
+
             <Box component={'form'}
               onSubmit={handleSubmit(onSubmit)}
               sx={{ width: '100%' }}>
@@ -96,7 +97,7 @@ export default function Login() {
               <Box sx={{ width: '100%', mb: '16px' }}>
 
                 <Typography variant='body2' sx={{ textAlign: 'left', mb: '4px', color: '#42474D' }} >
-                  Email or Phone Number
+                  Email 
                 </Typography>
                 <TextField fullWidth placeholder='e.g. layla@example.com' variant='outlined' size='small'
                   slotProps={{
@@ -121,8 +122,9 @@ export default function Login() {
                       }
                     }
                   }}
-                  {...login('email')}
-                  error={errors.email}/>
+                  {...register('email')}
+                  error={errors.email}
+                   helperText={errors.email?.message}/>
 
 
               </Box>
@@ -150,7 +152,7 @@ export default function Login() {
                       }
                     }
                   }}
-                  {...login('password')}
+                  {...register('password')}
                   error={errors.password}
                   helperText={errors.password?.message} />
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
@@ -183,8 +185,9 @@ export default function Login() {
                 disabled={isSubmitting} >
                 {isSubmitting ? 'Loading...' : 'Sign in'}
               </Button>
-              <Button type="button" variant="contained" fullWidth sx={{
-                mb: '20px', backgroundColor: '#CBE5DC', color: '#506761', borderRadius: '9999px', py: '14px', fontSize: '14px'
+              <Button type="button" variant="contained" fullWidth 
+              onClick={()=> navigate('/')}
+              sx={{mb: '20px', backgroundColor: '#CBE5DC', color: '#506761', borderRadius: '9999px', py: '14px', fontSize: '14px'
                 , fontWeight: 'medium', letterSpacing: '0.35px', textTransform: 'none'
               }}
               >

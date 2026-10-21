@@ -56,3 +56,18 @@ export const loginSchema = yup.object({
     .string()
     .required("Password is required"),
 });
+
+export const sendCodeSchema = yup.object({
+  email: yup.string().email('Invalid email').required('Email is required'),
+});
+export const resetPasswordSchema = yup.object({
+  password: yup.string()
+    .required('Password is required')
+    .min(8, 'At least 8 characters')
+    .matches(/[A-Z]/, 'Add an uppercase letter')
+    .matches(/\d/, 'Add a number')
+    .matches(/[^A-Za-z0-9]/, 'Add a symbol'),
+  confirmPassword: yup.string()
+    .oneOf([yup.ref('password')], 'Passwords do not match')
+    .required('Confirm your password'),
+});

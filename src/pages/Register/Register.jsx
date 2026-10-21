@@ -37,7 +37,6 @@ export default function Register() {
     resolver: yupResolver(registerSchema),
     mode: "onChange",
   });
-  const password = watch('password', '');
 
   const helper = (name, hint, okMsg) => {
     if (errors[name]) return errors[name].message;
@@ -57,6 +56,8 @@ export default function Register() {
       setServerError('Registration Failed');
     }
   };
+  
+  const password = watch('password', '');
   const strength = [
     password.length >= 8,
     /[A-Z]/.test(password) && /[a-z]/.test(password),

@@ -26,6 +26,7 @@ export default function Login() {
   const [serverError, setServerError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
 
   const {
@@ -38,23 +39,32 @@ export default function Login() {
     mode: "onChange",
   });
 
-  
+
 
   const onSubmit = async (data) => {
     console.log(data);
     try {
       const response = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/Login', data);
+      const token = response.data.accessToken
+; 
+      console.log(response.data);
+
+      if (rememberMe) {
+        localStorage.setItem('token', token);
+      } else {
+        sessionStorage.setItem('token', token);
+      }
       setSuccess(true);
-      navigate('/Home');
+      navigate('/');
     } catch (err) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       console.log(err.response);
       setServerError('Login Failed');
     }
   };
-  
 
-  
+
+
 
   return (
     <>
@@ -97,7 +107,7 @@ export default function Login() {
               <Box sx={{ width: '100%', mb: '16px' }}>
 
                 <Typography variant='body2' sx={{ textAlign: 'left', mb: '4px', color: '#42474D' }} >
-                  Email 
+                  Email
                 </Typography>
                 <TextField fullWidth placeholder='e.g. layla@example.com' variant='outlined' size='small'
                   slotProps={{
@@ -124,7 +134,7 @@ export default function Login() {
                   }}
                   {...register('email')}
                   error={errors.email}
-                   helperText={errors.email?.message}/>
+                  helperText={errors.email?.message} />
 
 
               </Box>
@@ -155,18 +165,20 @@ export default function Login() {
                   {...register('password')}
                   error={errors.password}
                   helperText={errors.password?.message} />
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
-                  <FormControlLabel sx={{  mx: 0, display: 'flex', gap: '12px' }}
-                    control={<Checkbox  size='small' color='#264764' sx={{ p: 0, color: '#264764' }} />} label={
-                      <Typography style={{ color: '#42474D', display: 'block', fontSize: '12px', lineHeight: '16px', textAlign: 'left' }}>
-                        Remember me 
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px',mt:'16px',mb:'16px' }}>
+                  <FormControlLabel sx={{ mx: 0, display: 'flex', gap: '12px' }}
+                    control={<Checkbox size='small' color='#264764' checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)} sx={{ p: 0, color: '#264764' }} />} label={
+                        <Typography style={{ color: '#42474D', display: 'block', fontSize: '12px', lineHeight: '16px', textAlign: 'left' }}>
+                          Remember me
                         </Typography>
-                    }
+                      }
                   />
                   <Link
                     component={RouterLink}
                     to="/SendCode"
-                    sx={{ whiteSpace: 'nowrap',fontFamily: 'inherit', fontSize: '12px', textDecoration: 'none', color: '#264764' ,lineHeight:'16px'}}
+                    sx={{ whiteSpace: 'nowrap', fontFamily: 'inherit', fontSize: '12px',
+                       textDecoration: 'none', color: '#264764', lineHeight: '16px' }}
                   >
                     Forgot password?
                   </Link>
@@ -185,11 +197,12 @@ export default function Login() {
                 disabled={isSubmitting} >
                 {isSubmitting ? 'Loading...' : 'Sign in'}
               </Button>
-              <Button type="button" variant="contained" fullWidth 
-              onClick={()=> navigate('/')}
-              sx={{mb: '20px', backgroundColor: '#CBE5DC', color: '#506761', borderRadius: '9999px', py: '14px', fontSize: '14px'
-                , fontWeight: 'medium', letterSpacing: '0.35px', textTransform: 'none'
-              }}
+              <Button type="button" variant="contained" fullWidth
+                onClick={() => navigate('/')}
+                sx={{
+                  mb: '20px', backgroundColor: '#CBE5DC', color: '#506761', borderRadius: '9999px', py: '14px', fontSize: '14px'
+                  , fontWeight: 'medium', letterSpacing: '0.35px', textTransform: 'none'
+                }}
               >
                 {isSubmitting ? 'Loading...' : 'Continue as guest'}
               </Button>

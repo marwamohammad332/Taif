@@ -22,12 +22,28 @@ import { MuiOtpInput } from 'mui-one-time-password-input';
 
 export default function ResetPassword() {
 
+  const { state } = useLocation();
+  const email = state?.email;
   const navigate = useNavigate()
   const [serverError, setServerError] = useState(null);
   const [success, setSuccess] = useState(false);
   const [code, setCode] = useState('');
 
-
+  const onSubmit = async (data) => {
+    setServerError(null);
+    try {
+      await axios.patch('https://knowledgeshop.runasp.net/api/auth/Account/ResetPassword', {
+        email,
+        code,
+        newPassword: data.password,
+      });
+      navigate('/login', { replace: true });
+    } catch (err) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      console.log(err.response);
+      setServerError(err.response?.data?.message || 'Invalid code, please try again');
+    }
+  };
   const {
     register,
     handleSubmit,
@@ -53,18 +69,7 @@ export default function ResetPassword() {
   const strengthLabels = ['', 'Weak', 'Fair', 'Good', 'Strong password'];
   const strengthColors = ['#ddd', '#4C635C', '#4C635C', '#4C635C', '#4C635C'];
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    try {
-      const response = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/ResetPassword', data);
-      setSuccess(true);
-      navigate('/Login', { state: { email: data.email } });
-    } catch (err) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      console.log(err.response);
-      setServerError('Failed');
-    }
-  };
+
 
 
 
@@ -106,13 +111,16 @@ export default function ResetPassword() {
               onSubmit={handleSubmit(onSubmit)}
               sx={{ width: '100%', mx: 'auto', mb: '24px' }}>
               <Box sx={{ width: '100%', borderRadius: '12px', background: '#EDF4FF', p: 2, boxSizing: 'border-box' }}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: '12px' }}>
-                  <Typography sx={{ fontSize: '11px', color: '#4C635C', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: '700' }}>
-                    <CircleIcon sx={{ fontSize: '11px' }} /> STEP 2 • VERIFICATION
+                <Box sx={{ display: 'flex',flexWrap:'wrap', justifyContent: 'space-between', alignItems: 'center', mb: '12px' }}>
+                  <Typography sx={{ fontSize: '11px', color: '#4C635C', display: 'flex', alignItems: 'center', gap:{xs:0.5,md:1} , fontWeight: '700' }}>
+                    <CircleIcon sx={{ fontSize: '11px' }} /> <span>STEP 2 • VERIFICATION</span> 
                   </Typography>
-                  <Typography sx={{ fontSize: '11px', color: '#4C635C', display: 'flex', alignItems: 'center', gap: '4px', fontWeight: '500' }}>
+                  <Typography sx={{ fontSize: '11px', color: '#4C635C', display: 'flex', alignItems: 'center', gap:{xs:0.5,md:1}, fontWeight: '500' }}>
                     <VerifiedUserOutlinedIcon sx={{ fontSize: '11px' }} />
-                    Encrypted
+                    <span>
+                       Encrypted
+                    </span>
+                   
                   </Typography>
                 </Box>
                 <Typography component={'label'} htmlFor='email' variant='body2' sx={{ display: 'block', textAlign: 'left', mb: '4px', color: '#42474D' }} >
@@ -122,14 +130,14 @@ export default function ResetPassword() {
                   value={code}
                   onChange={setCode}
                   length={4}
-                  gap={1}
+                
                   TextFieldsProps={{
                     error: !!serverError, size: 'small',
                     slotProps: { htmlInput: { inputMode: 'numeric' } },
                     sx: {
 
                       py: 1,
-                      width: '55px',
+                      width:'55px',
                       '& .MuiOutlinedInput-root': {
 
                         height: '55px',
@@ -197,15 +205,16 @@ export default function ResetPassword() {
                   </Box>
                 </Box>
                 <Box sx={{ mt: '40px' }}>
-                  <Typography variant='body2' sx={{ textAlign: 'left', mt: '16px', mb: '4px', color: '#42474D', fontWeight: '500',
-                    display:'flex',justifyContent:'space-between'
-                   }}>
+                  <Typography variant='body2' sx={{
+                    textAlign: 'left', mt: '16px', mb: '4px', color: '#42474D', fontWeight: '500',
+                    display: 'flex', justifyContent: 'space-between'
+                  }}>
                     Confirm Password
                     {match && (
-                    <Typography sx={{ fontSize: '12px', color: '#4C635C', mt: '6px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
-                      Passwords match <CheckIcon sx={{ fontSize: 14 }} />
-                    </Typography>
-                  )}
+                      <Typography sx={{ fontSize: '12px', color: '#4C635C', mt: '6px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '4px' }}>
+                        Passwords match <CheckIcon sx={{ fontSize: 14 }} />
+                      </Typography>
+                    )}
                   </Typography>
                   <TextField fullWidth type='password' size='small'
                     placeholder={'\u2022'.repeat(8)}
@@ -228,7 +237,7 @@ export default function ResetPassword() {
                     error={!!errors.confirmPassword}
                     helperText={errors.confirmPassword?.message}
                   />
-                  
+
                 </Box>
               </Box>
               <Button type="submit" variant="contained" fullWidth sx={{
@@ -241,6 +250,13 @@ export default function ResetPassword() {
               </Button>
             </Box>
 
+            <Link component={RouterLink} to='/Login' sx={{
+              ml: '4px', textDecoration: 'none',
+              fontWeight: '500', cursor: 'pointer', color: '#264764',
+              fontSize: '14px', mt: '45px'
+            }}>
+              Back to Sign in
+            </Link>
             <Divider sx={{ my: '16px', borderColor: '#DBEAFB', alignSelf: 'stretch' }} />
             <Button startIcon={<LanguageIcon sx={{ fontSize: '12px', color: '#42474D' }} />}
               sx={{ display: 'flex', mx: 'auto', textTransform: 'none', color: '#42474D', fontSize: '12px' }}>

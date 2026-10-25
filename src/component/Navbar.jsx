@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from './Categories'
-import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton } from '@mui/material'
+import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
@@ -9,7 +9,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 
 
 const Search = styled('div')(({ theme }) => ({
-  
+
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -51,14 +51,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   return (
 
-      <AppBar position="static" sx={{ width:'100%', background: '#F7F9FF',boxShadow: 3, color: '#0E1D29', boxShadow: 'none', py: 2 }}>
-        <Container>
-           <Box sx={{
-            display:'flex',
-            flexWrap:'nowrap',
-            justifyContent:'space-between'}}>
-          <Toolbar sx={{ mb: 2 
-           }}>
+    <AppBar position="static" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 2 }}>
+      <Container maxWidth='lg'>
+        <Box sx={{
+          display: 'flex',
+          alignItems:'center',
+          justifyContent:'space-between',
+          flexWrap: 'nowrap',
+          gap:2,
+          width:'100%'
+        }}>
+          <Toolbar sx={{
+            mb: 2
+          }}>
             <Box sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -68,13 +73,20 @@ export default function Navbar() {
                 TAIF
               </Typography>
 
-              <span>
+              <span style={{color:'#42474D'}}>
                 Everything for your family
               </span>
             </Box>
           </Toolbar>
-          <Search sx={{display:'flex',
-          width:'90%'
+          <Search sx={{
+            display: 'flex',
+            justifyContent:'space-between',
+            flex:1,
+            maxWidth:'54%',
+            boxShadow:1,
+            borderRadius:'9999px',
+            px:4
+
           }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -83,9 +95,21 @@ export default function Navbar() {
               placeholder="Search for baby care, clothing, essentials..."
               inputProps={{ 'aria-label': 'search' }}
             />
+            <Button sx={{
+            px:2,
+            alignSelf:'center',
+            borderRadius:'9999px',
+            background:'#E2EFFF',
+            color:'#42474D',
+            fontSize:'11px',
+            lineHeight:'14px'
+          }}>
+            All Categories
+            </Button>
           </Search>
+          
           <Box>
-             <IconButton
+            <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -98,36 +122,25 @@ export default function Navbar() {
               size="large"
               edge="end"
               aria-label="account of current user"
-             
+
               aria-haspopup="true"
-              
+
               color="inherit"
             >
               <AccountCircle />
             </IconButton>
           </Box>
-          
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              
-              aria-haspopup="true"
-             
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+
         </Box>
+       
 
 
         <Box sx={{ px: { xs: 2, md: 4 }, pb: 1, overflowX: 'auto' }}>
           <Categories />
         </Box>
-        </Container>
-       
-      </AppBar>
+      </Container>
+
+    </AppBar>
 
   )
 }

@@ -2,16 +2,11 @@
 import { Box, Container, IconButton, Button, InputAdornment, TextField, Typography, Checkbox, Link, Alert } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Link as RouterLink, useNavigate } from 'react-router';
-import React, { useState } from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import Divider from '@mui/material/Divider';
 import LanguageIcon from '@mui/icons-material/Language';
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import PhoneIphoneOutlinedIcon from '@mui/icons-material/PhoneIphoneOutlined';
-import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

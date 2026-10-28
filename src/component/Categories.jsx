@@ -1,6 +1,7 @@
 import React from 'react'
 import useCategories from './useCategories'
 import { Alert, Box, Chip, CircularProgress } from '@mui/material';
+import CategoryItem from './CategoryItem';
 
 export default function Categories() {
     const { isPending, isError, data } = useCategories();
@@ -14,10 +15,10 @@ export default function Categories() {
             <Box sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: 1
+                gap: '24px'
             }}>
                 {data.map((category) => (
-                    <Chip label={category.name} clickable />
+                    <CategoryItem category={category} />
                 )
                 )}
             </Box>

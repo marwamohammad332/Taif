@@ -61,7 +61,7 @@ export default function Navbar() {
           gap:2,
           width:'100%'
         }}>
-          <Toolbar sx={{
+          <Toolbar disableGutters sx={{
             mb: 2
           }}>
             <Box sx={{
@@ -69,11 +69,20 @@ export default function Navbar() {
               flexDirection: 'column',
               alignItems: 'start'
             }}>
-              <Typography variant='h6'>
+              <Typography variant='h6' sx={{
+                fontWeight:'500',
+                fontSize:'28px',
+                lineHeight:'36px'
+              }}>
                 TAIF
               </Typography>
 
-              <span style={{color:'#42474D'}}>
+              <span style={{color:'#42474D',
+                fontSize:'11px',
+                fontWeight:'500',
+                lineHeight:'14px',
+                letterSpacing:'0.33px'
+              }}>
                 Everything for your family
               </span>
             </Box>
@@ -81,12 +90,13 @@ export default function Navbar() {
           <Search sx={{
             display: 'flex',
             justifyContent:'space-between',
+            alignItems:'center',
             flex:1,
             maxWidth:'54%',
             boxShadow:1,
             borderRadius:'9999px',
-            px:4
-
+            px:4,
+            py:.5
           }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -135,7 +145,7 @@ export default function Navbar() {
        
 
 
-        <Box sx={{ px: { xs: 2, md: 4 }, pb: 1, overflowX: 'auto' }}>
+        <Box sx={{  pb: 1, overflowX: 'auto'}}>
           <Categories />
         </Box>
       </Container>

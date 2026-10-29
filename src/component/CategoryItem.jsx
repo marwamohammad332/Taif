@@ -11,14 +11,14 @@ export default function CategoryItem({category}) {
         fontWeight:'500',
         lineHeight:'20px',
         letterSpacing:'0.14px',
-        color:'#42474D',
+        color:'#676c73',
         background:'none',
         p:0,
         '& .MuiChip-label':{px:0},
         transition:'color 0.2s',
         '&:hover':{
             background:'none',
-            color:'#1F2D3A'
+            color:'#18232c'
         }
     }}
      label={category.name} clickable />

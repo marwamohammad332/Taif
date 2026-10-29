@@ -51,7 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   return (
 
-    <AppBar position="static" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 2 }}>
+    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 2 }}>
       <Container maxWidth='lg'>
         <Box sx={{
           display: 'flex',

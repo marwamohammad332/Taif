@@ -1,5 +1,5 @@
 import React from 'react'
-import useCategories from './useCategories'
+import useCategories from '../hooks/useCategories'
 import { Alert, Box, Chip, CircularProgress } from '@mui/material';
 import CategoryItem from './CategoryItem';
 

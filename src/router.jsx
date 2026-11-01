@@ -14,8 +14,8 @@ import Register from "./pages/Register/Register";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import SendCode from "./pages/SendCode/SendCode";
-import Mainlayout from "./component/MainLayOut";
-import AuthLayout from "./component/AuthLayout";
+import Mainlayout from "./layOuts/MainLayOut";
+import AuthLayout from "./layOuts/AuthLayout";
 
 
 
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
                 path: 'OrderConfermation',
                 element: <OrderConfermation />
             }, {
-                path: 'ProductDetails',
+                path: 'Products/:id',
                 element: <ProductDetails />
             }, {
                 path: 'ProfileInfo',

@@ -1,5 +1,5 @@
 import React from 'react'
-import Categories from './Categories'
+import Categories from '../Categories'
 import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -51,7 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   return (
 
-    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 2 }}>
+    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 1 }}>
       <Container maxWidth='lg'>
         <Box sx={{
           display: 'flex',
@@ -145,7 +145,7 @@ export default function Navbar() {
        
 
 
-        <Box sx={{  pb: 1, overflowX: 'auto'}}>
+        <Box sx={{  overflowX: 'auto'}}>
           <Categories />
         </Box>
       </Container>

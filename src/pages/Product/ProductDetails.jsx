@@ -1,10 +1,12 @@
 import React from 'react'
 import useProduct from '../../hooks/useProduct'
 import { Alert, Box, Button, Card, CardMedia, Chip, CircularProgress, Divider, Rating, Typography } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
+import ReviewItem from '../../component/Products/ReviewItem';
 
 export default function ProductDetails() {
   const {id} = useParams();
+  console.log(id);
   const {data,isPending, isError} = useProduct(id);
   if (isPending) return <CircularProgress/>
   if (isError) return <Alert severity='error'>
@@ -23,6 +25,7 @@ export default function ProductDetails() {
       },
       gap:4
     }}>
+     
       <Card>
         <CardMedia component={'img'} image={data.image} sx={{
           maxHeight:400,
@@ -54,6 +57,9 @@ export default function ProductDetails() {
       borderBottomWidth:3
     }}/>
     
+    {data.reviews.map( (review)=> 
+    <ReviewItem review={review} />
+    )}
     </>
   )
 }

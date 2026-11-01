@@ -1,8 +1,10 @@
 import { Card, CardActionArea, CardContent, CardMedia, Rating, Typography } from '@mui/material'
 import React from 'react'
+
 import { Link } from 'react-router'
 
 export default function ProductCard({product}) {
+
   return (
     <>
     <Card>

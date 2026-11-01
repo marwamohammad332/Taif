@@ -15,7 +15,7 @@ export default function useProduct(id) {
         return response.data.response;
     }
   return  useQuery({
-     queryKey: ['Product'],
+     queryKey: ['Product', id],
     queryFn: getProductDetails,
     staleTime: 1000* 60 *3
 

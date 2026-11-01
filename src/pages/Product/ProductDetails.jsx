@@ -1,8 +1,10 @@
 import React from 'react'
 import useProduct from '../../hooks/useProduct'
-import { Alert, Box, CircularProgress } from '@mui/material';
+import { Alert, Box, Button, Card, CardMedia, Chip, CircularProgress, Divider, Rating, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 
 export default function ProductDetails() {
+  const {id} = useParams();
   const {data,isPending, isError} = useProduct(id);
   if (isPending) return <CircularProgress/>
   if (isError) return <Alert severity='error'>
@@ -15,10 +17,43 @@ export default function ProductDetails() {
     <>
     <Box sx={{
       display:'grid',
-      
+      gridTemplateColumns:{
+        xs:'1fr',
+        md:'1fr 1fr'
+      },
+      gap:4
     }}>
+      <Card>
+        <CardMedia component={'img'} image={data.image} sx={{
+          maxHeight:400,
+          objectFit:'contain'
+        }}/>
+      </Card>
+      <Box>
+        <Typography>
+          {data.name}
+        </Typography>
+        <Rating value={data.rate} readOnly></Rating>
+        <Typography variant='h4' color='primary'>
+          ${data.price}
+        </Typography>
+        <Chip label={inStock ? "In Stock" : "Out of Stock"}
+        color={inStock > 0 ? 'success' : 'error'}></Chip>
+        <Typography>
+          {data.description}
+        </Typography>
+        <Button variant='contained' disabled={!inStock}>
+          Add to cart
+        </Button>
+      </Box>
 
     </Box>
+    <Divider sx={{
+      mt:3,
+      mb:3,
+      borderBottomWidth:3
+    }}/>
+    
     </>
   )
 }

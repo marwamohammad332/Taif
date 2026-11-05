@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getCategries = async ()=>{
-    const response = await axios.get('https://knowledgeshop.runasp.net/api/Categories',{
+    const response = await axios.get(`https://knowledgeshop.runasp.net/api/Categories?limit=100`,{
       headers :{
         'Accept-Language':'en'
       }});

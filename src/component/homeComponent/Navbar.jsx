@@ -1,11 +1,12 @@
 import React from 'react'
 import Categories from '../Categories'
-import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button } from '@mui/material'
+import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button, Chip } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link } from 'react-router';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -51,37 +52,39 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Navbar() {
   return (
 
-    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF',color:'#264764', boxShadow: 3, boxShadow: 'none', py: 1 }}>
+    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF', color: '#264764', boxShadow: 3, boxShadow: 'none', py: 1 }}>
       <Container maxWidth='lg'>
         <Box sx={{
           display: 'flex',
-          alignItems:'center',
-          justifyContent:'space-between',
+          alignItems: 'center',
+          justifyContent: 'space-between',
           flexWrap: 'nowrap',
-          gap:2,
-          width:'100%'
+          gap: 2,
+          width: '100%'
         }}>
           <Toolbar disableGutters sx={{
             mb: 2
           }}>
-            <Box sx={{
+            <Box component={Link} to={'/'} sx={{
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'start'
+              alignItems: 'start',
+              textDecoration: 'none'
             }}>
               <Typography variant='h6' sx={{
-                fontWeight:'500',
-                fontSize:'28px',
-                lineHeight:'36px'
+                fontWeight: '500',
+                fontSize: '28px',
+                lineHeight: '36px'
               }}>
                 TAIF
               </Typography>
 
-              <span style={{color:'#42474D',
-                fontSize:'11px',
-                fontWeight:'500',
-                lineHeight:'14px',
-                letterSpacing:'0.33px'
+              <span style={{
+                color: '#42474D',
+                fontSize: '11px',
+                fontWeight: '500',
+                lineHeight: '14px',
+                letterSpacing: '0.33px'
               }}>
                 Everything for your family
               </span>
@@ -89,14 +92,14 @@ export default function Navbar() {
           </Toolbar>
           <Search sx={{
             display: 'flex',
-            justifyContent:'space-between',
-            alignItems:'center',
-            flex:1,
-            maxWidth:'54%',
-            boxShadow:1,
-            borderRadius:'9999px',
-            px:4,
-            py:.5
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flex: 1,
+            maxWidth: '54%',
+            boxShadow: 1,
+            borderRadius: '9999px',
+            px: 4,
+            py: .5
           }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -106,18 +109,18 @@ export default function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
             <Button sx={{
-            px:2,
-            alignSelf:'center',
-            borderRadius:'9999px',
-            background:'#E2EFFF',
-            color:'#42474D',
-            fontSize:'11px',
-            lineHeight:'14px'
-          }}>
-            All Categories
+              px: 2,
+              alignSelf: 'center',
+              borderRadius: '9999px',
+              background: '#E2EFFF',
+              color: '#42474D',
+              fontSize: '11px',
+              lineHeight: '14px'
+            }}>
+              All Categories
             </Button>
           </Search>
-          
+
           <Box>
             <IconButton
               size="large"
@@ -142,11 +145,32 @@ export default function Navbar() {
           </Box>
 
         </Box>
-       
 
 
-        <Box sx={{  overflowX: 'auto'}}>
-          <Categories />
+
+        <Box sx={{ overflowX: 'auto' }}>
+          <Categories wrap="nowrap">
+            {(category) => (
+              <Chip
+                component={Link}
+                to={`/Category/${category.id}`}
+                label={category.name}
+                clickable
+                sx={{
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  lineHeight: '20px',
+                  letterSpacing: '0.14px',
+                  color: '#676c73',
+                  background: 'none',
+                  p: 0,
+                  '& .MuiChip-label': { px: 0 },
+                  transition: 'color 0.2s',
+                  '&:hover': { background: 'none', color: '#18232c' },
+                }}
+              />
+            )}
+          </Categories>
         </Box>
       </Container>
 

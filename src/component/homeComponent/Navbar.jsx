@@ -7,6 +7,7 @@ import Badge from '@mui/material/Badge';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router';
+import { useAuthStore } from '../../store/useAuthStore';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -49,7 +50,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
+
 export default function Navbar() {
+  
+const token =useAuthStore ((state)=>state.token);
+const logout =useAuthStore ((state)=>state.logout);
   return (
 
     <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF', color: '#264764', boxShadow: 3, boxShadow: 'none', py: 1 }}>
@@ -108,17 +113,7 @@ export default function Navbar() {
               placeholder="Search for baby care, clothing, essentials..."
               inputProps={{ 'aria-label': 'search' }}
             />
-            <Button sx={{
-              px: 2,
-              alignSelf: 'center',
-              borderRadius: '9999px',
-              background: '#E2EFFF',
-              color: '#42474D',
-              fontSize: '11px',
-              lineHeight: '14px'
-            }}>
-              All Categories
-            </Button>
+            
           </Search>
 
           <Box>
@@ -135,10 +130,10 @@ export default function Navbar() {
               size="large"
               edge="end"
               aria-label="account of current user"
-
               aria-haspopup="true"
-
               color="inherit"
+              component={Link}
+              to={token? '/ProfileInfo' : '/Login'}
             >
               <AccountCircle />
             </IconButton>

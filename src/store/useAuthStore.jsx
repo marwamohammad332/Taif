@@ -1,15 +1,15 @@
 import { create } from 'zustand'
 import React from 'react'
 
-export default function useAuthStore = create( (set)=>({
+export const useAuthStore = create( (set)=>({
     token: localStorage.getItem('token'),
 
-    Login: (newToken)=>{
+    login: (newToken)=>{
         localStorage.setItem('token',newToken);
         set({token:newToken});
 
     },
-    Logout:()=>{
+    logout:()=>{
         localStorage.removeItem('token');
         set({token:null});
     }

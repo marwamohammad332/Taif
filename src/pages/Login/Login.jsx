@@ -13,11 +13,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../Validation/authSchemas";
 import axios from 'axios';
 import { useState } from 'react';
-
-
+import { useAuthStore } from '../../store/useAuthStore';
 
 
 export default function Login() {
+  const login = useAuthStore ((state)=> state.login);
   const navigate = useNavigate()
   const [serverError, setServerError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -41,7 +41,8 @@ export default function Login() {
     console.log(data);
     try {
       const response = await axios.post('https://knowledgeshop.runasp.net/api/auth/Account/Login', data);
-      const token = response.data.accessToken
+       const token = response.data.accessToken;
+       login(token);
 ; 
       console.log(response.data);
 

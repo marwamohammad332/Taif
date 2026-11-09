@@ -79,7 +79,8 @@ const logout =useAuthStore ((state)=>state.logout);
               <Typography variant='h6' sx={{
                 fontWeight: '500',
                 fontSize: '28px',
-                lineHeight: '36px'
+                lineHeight: '36px',
+                color:'#264764'
               }}>
                 TAIF
               </Typography>

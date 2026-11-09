@@ -9,11 +9,11 @@ export default function ProfileInfo() {
   const logout = useAuthStore((state) => state.logout)
   const navigate = useNavigate()
   const token = useAuthStore((state) => state.token)
-if (!token) return <Navigate to="/Login" replace />
+if (!token) return <Navigate to="/" replace />
 
   const handleLogout = () => {
     logout()
-    navigate('/Login')
+    navigate('/')
   }
   return (
     <>

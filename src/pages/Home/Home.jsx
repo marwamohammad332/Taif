@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Alert, Container } from '@mui/material';
 import React, { useState } from 'react';
 import Hero from '../../component/homeComponent/Hero';
 import ProductSection from '../../component/homeComponent/ProductSection';
@@ -12,7 +12,7 @@ const token =useAuthStore ((state)=>state.token);
 
   return (
     <>
-    
+    {token?<Alert severity='success'>Welcome Back !</Alert>:''}
       <Hero />
      <CategoriesSection />
       <ProductSection />

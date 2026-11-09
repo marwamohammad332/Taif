@@ -13,9 +13,9 @@ import { Box, Button, Typography } from '@mui/material';
 
 
 export default function SwiperHero() {
-  return (
-    <>
-     <Swiper
+    return (
+        <>
+            <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation
                 pagination={{ clickable: true }}
@@ -103,11 +103,10 @@ export default function SwiperHero() {
                     <Box sx={{
                         height: 500,
                         display: 'grid',
-                        gridTemplateColumns:{
-                            xs:'1fr',
-                            md:'repeat(2,1fr)'
+                        gridTemplateColumns: {
+                            xs: '1fr',
+                            md: 'repeat(2,1fr)'
                         },
-                       
                         px: 8,
                         color: '#fff',
                         borderRadius: '24px',
@@ -115,74 +114,84 @@ export default function SwiperHero() {
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         py: '24px',
-                        position:'relative'
-                        
+                        position: 'relative',
+
                     }}>
                         <Box sx={{
-                            position:'relative',
-                            width:'50%'
+                            position: 'relative',
+                            width: { xs: '100%', md: '50%' },
+                            height: { xs: 260, md: 'auto' },
+                            mt: { xs: 4, md: 0 },
                         }}>
                             <Box component={'img'} src={manshirt} alt='Man blue shirt' sx={{
-                              position:'absolute',
-                              zIndex:'1',
-                                right:'-200px',
-                                bottom:'166.2px',
-                                borderRadius:'16px',
-                                border:'2px solid #ffffff',
-                                transform:'rotate(6deg)',
-                                width:'150px',
-                                height:'190px',
-                                objectFit:'cover',
+                                position: 'absolute',
+                                zIndex: 1,
+                                right: { xs: '5%', md: '-170px' },
+                                bottom: { xs: '90px', md: '166.2px' },
+                                borderRadius: '16px',
+                                border: '2px solid #ffffff',
+                                transform: 'rotate(6deg)',
+                                width: { xs: '100px', md: '150px' },
+                                height: { xs: '150px', md: '190px' },
+                                objectFit: 'cover',
+                                transition: 'transform 0.3s ease',
+                                '&:hover': { transform: 'rotate(0deg) scale(1.05)' },
                             }}></Box>
-                             <Box component={'img'} src={babyoverall} alt='baby blue overall' sx={{
-                              position:'absolute',
-                              zIndex:'2',
-                                right:'50.8px',
-                                bottom:'87.5px',
-                                borderRadius:'16px',
-                                border:'2px solid #ffffff',
-                                transform:'rotate(-6deg)',
-                                width:'150px',
-                                height:'190px',
-                                objectFit:'cover',
+                            <Box component={'img'} src={babyoverall} alt='baby blue overall' sx={{
+                                position: 'absolute',
+                                zIndex: 2,
+                                right: { xs: '55%', md: '-10px' },
+                                bottom: { xs: '40px', md: '80px' },
+                                borderRadius: '16px',
+                                border: '2px solid #ffffff',
+                                transform: 'rotate(-6deg)',
+                                width: { xs: '100px', md: '150px' },
+                                height: { xs: '150px', md: '190px' },
+                                objectFit: 'cover',
+                                transition: 'transform 0.3s ease',
+                                '&:hover': { transform: 'rotate(0deg) scale(1.05)' },
                             }}></Box>
-                             <Box component={'img'} src={bodyWash} alt='baby blue overall' sx={{
-                              position:'absolute',
-                              zIndex:'9',
-                                top:'50%',
-                                left:'50%',
-                                mx:'auto',
-                                borderRadius:'16px',
-                                border:'2px solid #ffffff',
-                                width:'150px',
-                                height:'190px',
-                                objectFit:'cover',
+                            <Box component={'img'} src={bodyWash} alt='baby blue overall' sx={{
+                                position: 'absolute',
+                                zIndex: 9,
+                                right: { xs: '30%', md: '-100px' },
+                                bottom: { xs: '60px', md: '120px' },
+                                borderRadius: '16px',
+                                border: '2px solid #ffffff',
+                                width: { xs: '100px', md: '150px' },
+                                height: { xs: '150px', md: '190px' },
+                                objectFit: 'cover',
+                                transition: 'transform 0.3s ease',
+                                '&:hover': { transform: 'scale(1.05)' },
                             }}></Box>
-                        
+
                         </Box>
                         <Box sx={{
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '12px'
+                            gap: '12px',
+                            alignItems: 'flex-start',
+                            justifyContent: 'center'
                         }}>
-                            <Box sx={{
-                                width: 'fit-content',
-                                color: '#7B9BB8'
-                            }}>
 
-                                <Typography>
-                                    WOMEN'S COLLECTION
-                                </Typography>
-                            </Box>
+
+                            <Typography sx={{
+                                width: 'fit-content',
+                                color: '#B34045',
+                                fontSize: '12px'
+                            }}>
+                                SEASONAL EVENT
+                            </Typography>
+
                             <Typography variant="h3" sx={{
                                 fontSize: '48px',
                                 lineHeight: '48px',
                                 maxWidth: '360px',
                                 letterSpacing: '-1.2px',
                                 fontWeight: '700',
-                                color:'#c6d0dc'
+                                color: '#0E1D29'
                             }}>
-                                Breezy Linen, Everyday Elegance
+                                Up to 40% Off
 
                             </Typography>
                             <Typography variant='p' sx={{
@@ -190,18 +199,18 @@ export default function SwiperHero() {
                                 fontSize: '16px',
                                 lineHeight: '24px',
                                 letterSpacing: '0.21px',
-                                color: '#A0B2C6cc',
+                                color: '#42474D',
                             }}>
-                                Natural linen designs for relaxed style across the whole family.
-
+                                Curated essentials for babies, children, and parents across all
+                                seasonal favorites.
                             </Typography>
                             <Button variant="contained" sx={{
                                 mt: 3,
                                 width: 'fit-content',
-                                background: '#141E27',
+                                background: '#B34045',
                                 color: '#ffffff',
-                                fontSize: '16px',
-                                lineHeight: '24px',
+                                fontSize: '12px',
+                                lineHeight: '20px',
                                 letterSpacing: '0.21px',
                                 py: '12px',
                                 px: '24px',
@@ -210,7 +219,7 @@ export default function SwiperHero() {
                                 alignItems: 'center',
                                 gap: '8px'
                             }}>
-                                Shop women's wear 
+                                Shop all offers
                                 <ArrowForwardIcon fontSize="small" />
                             </Button>
                         </Box>
@@ -318,7 +327,7 @@ export default function SwiperHero() {
                                 maxWidth: '360px',
                                 letterSpacing: '-1.2px',
                                 fontWeight: '700',
-                                color:'#c6d0dc'
+                                color: '#c6d0dc'
                             }}>
                                 Breezy Linen, Everyday Elegance
 
@@ -348,15 +357,15 @@ export default function SwiperHero() {
                                 alignItems: 'center',
                                 gap: '8px'
                             }}>
-                                Shop women's wear 
+                                Shop women's wear
                                 <ArrowForwardIcon fontSize="small" />
                             </Button>
                         </Box>
 
                     </Box>
                 </SwiperSlide>
-                
+
             </Swiper>
-    </>
-  )
+        </>
+    )
 }

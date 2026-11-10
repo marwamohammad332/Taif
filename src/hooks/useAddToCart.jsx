@@ -4,16 +4,18 @@ import { useAuthStore } from '../store/useAuthStore';
 import {useMutation} from '@tanstack/react-query';
 import authAxiosInstance from '../api/authAxiosInstance';
 
-export default function useAddToCart(ProductId) {
+export default function useAddToCart() {
 
    
-    const addToCart= async()=>{
+    const addToCart= async(productId)=>{
+
         const response = await authAxiosInstance.post(`Carts`,
-            {ProductId:ProductId ,Count:1});
+            {ProductId:productId ,Count:1});
         
         return response.data;
     }
   return useMutation ({
     mutationFn:addToCart,
+    
   })
 }

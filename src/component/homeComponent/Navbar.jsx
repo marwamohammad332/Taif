@@ -123,7 +123,7 @@ const logout =useAuthStore ((state)=>state.logout);
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={17} color="error"  component={Link} to={'/Cart'}>
                 <NotificationsIcon />
               </Badge>
             </IconButton>

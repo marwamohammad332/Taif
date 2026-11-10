@@ -28,7 +28,7 @@ export default function ProductDetails() {
       onSuccess: () => {
         toast.info('Added to cart !', {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: false,
           pauseOnHover: true,
@@ -76,7 +76,12 @@ export default function ProductDetails() {
           <Typography>
             {data.description}
           </Typography>
-          <Button variant='contained'
+          <Button variant='contained' sx={{
+            backgroundColor: '#3F5F7D',
+            borderRadius: '9999px',
+            textTransform: 'none',
+            px: 4,
+          }}
             onClick={() => handeleAddToCart()}
             disabled={!inStock || addToCartPending}>
             Add to cart

@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import Nav from "../../component/cartComponanent/Nav";
-import HeaderBar from "../../component/cartComponanent/headerBar";
+import HeaderBar from "../../component/cartComponanent/HeaderBar";
 import CartLayout from "../../component/cartComponanent/CartLayout";
 import { useAuthStore } from "../../store/useAuthStore";
 import { Link } from "react-router";

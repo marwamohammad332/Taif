@@ -68,6 +68,13 @@ export default function CartLayout() {
             }}>
                 SUBTOTAL
             </Typography>
+            <Typography variant='body2' sx={{
+              width:'50px',
+              textAlign:'center'
+            }}>
+                   
+            </Typography>
+            
             
             
         </Box>

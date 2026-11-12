@@ -27,11 +27,17 @@ export default function CategoryCard({ category }) {
       to={`/Category/${category.id}`}
       sx={{
         textDecoration: 'none',
-        width: { xs: 'calc(50% - 12px)', md: 'calc(25% - 18px)' },
-        '&:hover img': { transform: 'scale(1.05)' },
+        mx:'auto',
+        width: { xs: '50% ', md: '20%' },
+        '&:hover': { transform: 'scale(1.05)' },
+        transition: 'transform 0.3s',
+         borderRadius: 3,
+         p:2,
+         boxShadow: 1,
+         backgroundColor: 'navBackground.main',
       }}
     >
-      <Box sx={{ overflow: 'hidden', borderRadius: 3, background: '#F7F9FF' }}>
+
         <Box
           component="img"
           src={images[category.id]}
@@ -41,13 +47,20 @@ export default function CategoryCard({ category }) {
             aspectRatio: '4 / 3',
             objectFit: 'cover',
             display: 'block',
-            transition: 'transform 0.3s',
+            borderRadius: 3,
+             '&:hover': { transform: 'scale(1.05)' },
+          transition: 'transform 0.3s',
           }}
         />
-      </Box>
-      <Typography sx={{ mt: 1.5, fontWeight: 600, fontSize: '16px', color: '#18232c' }}>
+        <Typography sx={{ mt: 1.5,
+         fontWeight: 600, 
+         fontSize: '16px',
+         color:'primary.darker'
+         }}>
         {category.name}
       </Typography>
+      
+      
     </Box>
   )
 }

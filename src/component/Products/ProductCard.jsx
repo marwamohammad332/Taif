@@ -7,15 +7,28 @@ export default function ProductCard({product}) {
 
   return (
     <>
-    <Card>
+    <Card sx={{
+      '&:hover': { transform: 'scale(1.05)' },
+        transition: 'transform 0.3s',
+         borderRadius: 3,
+         p:2,
+         boxShadow: 1,
+         backgroundColor: 'navBackground.main',
+    }}>
       <CardActionArea component={Link} to={`/Products/${product.id}`}>
-        <CardMedia component={'img'} image={product.image} alt={product.name}/>
+        <CardMedia component={'img'} image={product.image} alt={product.name} sx={{
+         
+        }}/>
         <CardContent>
-          <Typography>
+          <Typography sx={{
+            color:'primary.darker'
+          }}>
             {product.name}
           </Typography>
          
-          <Typography variant='h6' color='#264764'>
+          <Typography variant='h6' sx={{
+            color:'primary.main'
+          }}>
             ${product.price}
           </Typography>
         </CardContent>

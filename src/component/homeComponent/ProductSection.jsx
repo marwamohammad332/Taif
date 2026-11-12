@@ -7,19 +7,26 @@ export default function ProductSection() {
     return (
         <>
             <Box sx={{
-                background: '#EDF4FF'
+                backgroundColor: 'secondary.main'
             }}>
                 <Container sx={{
-                    py: '32px'
+                    py: 4
                 }}>
                     <Box sx={{
                         display:'flex',
                         justifyContent:'space-between',
                         alignItems:'flex-end',
-                        mb:'24px'
+                        mb:3
                     }}>
-                        <Box>
-                            <Typography>
+                        <Box sx={{
+                            color:'primary.main'
+                        }}>
+                            <Typography sx={{
+                                display:'flex',
+                                alignItems:'center',
+                                gap:0.5,
+                                mb:0.5
+                            }}>
                                 <StarsOutlinedIcon />
                                 HANDPICKED FAVORITES
                             </Typography>

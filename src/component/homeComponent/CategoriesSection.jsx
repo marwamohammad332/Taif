@@ -11,20 +11,27 @@ export default function CategoriesSection() {
             <Box sx={{
             }}>
                 <Container sx={{
-                    py: '32px'
+                    py: 4
                 }}>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'flex-end',
-                        mb: '24px'
+                        mb:3,
+                         color:'tertiary.main',
                     }}>
                         <Box>
-                            <Typography>
+                            <Typography sx={{
+                                display:'flex',
+                                alignItems:'center',
+                                gap:0.5
+                            }}>
                                 <CategoryOutlinedIcon />
                                 EXPLORE BY NEEDS
                             </Typography>
-                            <Typography variant='h3'>
+                            <Typography variant='h3' sx={{
+                                color:'primary.main'
+                            }}>
                                 Shop by Categories
                             </Typography>
                         </Box>

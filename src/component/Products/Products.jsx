@@ -21,7 +21,8 @@ export default function Products() {
             sm:'repeat(3,1fr)',
             md:'repeat(4,1fr)',
         },
-        gap:'24px'
+        gap:3,
+        textDecoration: 'none',
     }}>
         {data.map((product)=>(
             <ProductCard product={product} />

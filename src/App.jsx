@@ -6,18 +6,21 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
+import { ThemeProvider } from '@emotion/react'
+import theme from './theme'
 
 const queryClient = new QueryClient()
 
 export default function App() {
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ToastContainer />
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ToastContainer />
+        </QueryClientProvider>
 
-      </QueryClientProvider>
-
+      </ThemeProvider>
     </>
   )
 }

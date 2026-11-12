@@ -56,8 +56,12 @@ export default function Navbar() {
 const token =useAuthStore ((state)=>state.token);
 const logout =useAuthStore ((state)=>state.logout);
   return (
-
-    <AppBar position="sticky" sx={{ width: '100%', background: '#F7F9FF', color: '#264764', boxShadow: 3, boxShadow: 'none', py: 1 }}>
+ 
+    <AppBar position="sticky" sx={{ width: '100%', 
+    backgroundColor: "navBackground.main",
+     color:'primary.main',
+      boxShadow: 'none',
+       py: 1 }}>
       <Container maxWidth='lg'>
         <Box sx={{
           display: 'flex',
@@ -74,26 +78,27 @@ const logout =useAuthStore ((state)=>state.logout);
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'start',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              color:'tertiary.main'
             }}>
               <Typography variant='h6' sx={{
                 fontWeight: '500',
                 fontSize: '28px',
                 lineHeight: '36px',
-                color:'#264764'
+                 color:'primary.main'
               }}>
                 TAIF
               </Typography>
 
-              <span style={{
-                color: '#42474D',
+              <Typography style={{
+                color: "tertiary.main",
                 fontSize: '11px',
                 fontWeight: '500',
                 lineHeight: '14px',
                 letterSpacing: '0.33px'
               }}>
                 Everything for your family
-              </span>
+              </Typography>
             </Box>
           </Toolbar>
           <Search sx={{
@@ -124,7 +129,9 @@ const logout =useAuthStore ((state)=>state.logout);
               color="inherit"
             >
               <Badge badgeContent={17} color="error"  component={Link} to={'/Cart'}>
-                <NotificationsIcon />
+                <NotificationsIcon sx={{
+                  color:"primary.main"
+                }} />
               </Badge>
             </IconButton>
             <IconButton
@@ -132,9 +139,10 @@ const logout =useAuthStore ((state)=>state.logout);
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
-              color="inherit"
               component={Link}
-              to={token? '/ProfileInfo' : '/Login'}
+              to={token? '/ProfileInfo' : '/Login'} sx={{
+                color:"primary.main"
+              }}
             >
               <AccountCircle />
             </IconButton>
@@ -157,12 +165,12 @@ const logout =useAuthStore ((state)=>state.logout);
                   fontWeight: '500',
                   lineHeight: '20px',
                   letterSpacing: '0.14px',
-                  color: '#676c73',
+                  color: 'tertiary.main',
                   background: 'none',
                   p: 0,
                   '& .MuiChip-label': { px: 0 },
                   transition: 'color 0.2s',
-                  '&:hover': { background: 'none', color: '#18232c' },
+                  '&:hover': { background: 'none', color: "tertiary.dark" },
                 }}
               />
             )}

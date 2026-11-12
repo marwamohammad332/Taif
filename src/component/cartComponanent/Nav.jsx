@@ -8,7 +8,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 function handleClick(event) {
   event.preventDefault();
-  console.info('You clicked a breadcrumb.');
 }
 export default function Nav() {
   const breadcrumbs = [

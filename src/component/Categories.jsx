@@ -14,7 +14,7 @@ export default function Categories({children , gap = '24px', wrap = 'wrap'}) {
         <>
             <Box sx={{ display: 'flex', 
                 flexWrap: wrap,
-                 gap }}>
+                 gap:3 }}>
             {data.map((category) => (
                 <React.Fragment key={category.id}>
                     {children(category)}

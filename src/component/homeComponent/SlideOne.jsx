@@ -36,24 +36,24 @@ export default function SlideOne() {
                         border: '1px solid #ffffff33',
                         backgroundColor: "white.dark"
                     }}>
-                        <LocalOfferOutlinedIcon />
-                        <Typography>
+                        <LocalOfferOutlinedIcon sx={{
+                            fontSize:'0.75rem'
+                        }} />
+                        <Typography variant='body2' sx={{
+                            letterSpacing:'0.075rem'
+                        }}>
                             LIMITED TIME OFFERS
                         </Typography>
                     </Box>
-                    <Typography variant="h3" sx={{
-                        fontSize: '48px',
-                        lineHeight: '48px',
+                    <Typography variant="h2" sx={{
                         maxWidth: '360px',
                         letterSpacing: '-1.2px',
                         fontWeight: '700'
                     }}>
                         Seasonal Family Savings
                     </Typography>
-                    <Typography variant='p' sx={{
+                    <Typography variant='body1' sx={{
                         maxWidth: '385px',
-                        fontSize: '16px',
-                        lineHeight: '24px',
                         letterSpacing: '0.21px',
                         color: 'white.light',
                     }}>
@@ -65,9 +65,6 @@ export default function SlideOne() {
                         width: 'fit-content',
                         backgroundColor: 'white.main',
                         color: 'primary.darker',
-                        fontSize: '16px',
-                        lineHeight: '24px',
-                        letterSpacing: '0.21px',
                         py: '12px',
                         px: '24px',
                         borderRadius: '12px',

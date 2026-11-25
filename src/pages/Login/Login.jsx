@@ -1,5 +1,5 @@
 
-import { Box, Container, IconButton, Button, InputAdornment, TextField, Typography, Checkbox, Link, Alert } from '@mui/material'
+import { Box, Container, IconButton, Button, InputAdornment, TextField, Typography, Checkbox, Link, Alert, Paper } from '@mui/material'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { Link as RouterLink, useNavigate } from 'react-router';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
@@ -65,9 +65,9 @@ export default function Login() {
 
   return (
     <>
-      <Box component={'main'} sx={{ background: '#EDF4FF', minHeight: '100vh', py: { xs: '16px', sm: '32px' } }}>
+      <Box component={'main'} sx={{  minHeight: '100vh', py: { xs: '16px', sm: '32px' } }}>
         <Container maxWidth='sm' sx={{ textAlign: 'center', px: { xs: 2, sm: 3 } }}>
-          <Box sx={{
+          <Paper sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -75,7 +75,7 @@ export default function Login() {
             maxWidth: 480,
             boxSizing: 'border-box',
             mx: 'auto',
-            p: { xs: 2.5, sm: 4 }, background: 'white', mt: '16px', borderRadius: '12px',
+            p: { xs: 2.5, sm: 4 }, mt: '16px', borderRadius: '12px',
             boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)'
           }}>
             <Box sx={{ mb: '16px', textAlign: 'center' }}>
@@ -194,7 +194,7 @@ export default function Login() {
                 disabled={isSubmitting} >
                 {isSubmitting ? 'Loading...' : 'Sign in'}
               </Button>
-              <Button type="button" variant="contained" fullWidth
+              <Button type="button" variant="contained"
                 onClick={() => navigate('/')}
                 sx={{
                   mb: '20px', backgroundColor: '#CBE5DC', color: '#506761', borderRadius: '9999px', py: '14px', fontSize: '14px'
@@ -220,7 +220,7 @@ export default function Login() {
               العربية | English
             </Button>
 
-          </Box>
+          </Paper>
         </Container >
       </Box >
 

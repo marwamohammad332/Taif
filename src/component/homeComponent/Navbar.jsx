@@ -1,6 +1,6 @@
 import React from 'react'
 import Categories from '../Categories'
-import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button, Chip } from '@mui/material'
+import { AppBar, Box, Container, InputBase, Toolbar, Typography, styled, alpha, IconButton, Button, Chip, Tooltip } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
@@ -8,6 +8,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router';
 import { useAuthStore } from '../../store/useAuthStore';
+import { useThemeStore } from '../../store/themeStore';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -55,6 +58,8 @@ export default function Navbar() {
   
 const token =useAuthStore ((state)=>state.token);
 const logout =useAuthStore ((state)=>state.logout);
+const toggleMode = useThemeStore ((state)=>state.toggleMode);
+const mode = useThemeStore((state)=>state.mode);
   return (
  
     <AppBar position="sticky" sx={{ width: '100%', 
@@ -123,15 +128,23 @@ const logout =useAuthStore ((state)=>state.logout);
           </Search>
 
           <Box>
+            <Tooltip title={mode=="light"?"Dark mode":"Light mode"}>
+              <IconButton onClick={toggleMode}  sx={{
+              color:'primary.main'
+            }}>
+              {mode=="light"?<DarkModeOutlinedIcon/>:<LightModeOutlinedIcon />}
+            </IconButton>
+            </Tooltip>
+            
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
-              color="inherit"
+              
             >
               <Badge badgeContent={17} color="error"  component={Link} to={'/Cart'}>
                 <NotificationsIcon sx={{
-                  color:"primary.main"
-                }} />
+              color:'primary.main'
+            }} />
               </Badge>
             </IconButton>
             <IconButton

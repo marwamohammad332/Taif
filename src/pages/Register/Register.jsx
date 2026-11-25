@@ -318,7 +318,7 @@ export default function Register() {
                   purchase safety rules. </span>
               }
             />
-            <Button type="submit" variant="contained" fullWidth sx={{
+            <Button type="submit" variant="contained"  sx={{
               mb: '20px', backgroundColor: '#3F5F7D', color: 'white', borderRadius: '9999px', py: '14px', fontSize: '14px'
               , fontWeight: 'medium', letterSpacing: '0.35px', textTransform: 'none'
             }}

@@ -28,13 +28,11 @@ export default function SlideThree() {
                         color: 'primary.light'
                     }}>
 
-                        <Typography>
+                        <Typography variant='body2'>
                             MEN'S COLLECTION
                         </Typography>
                     </Box>
-                    <Typography variant="h3" sx={{
-                        fontSize: '48px',
-                        lineHeight: '48px',
+                    <Typography variant="h2" sx={{
                         maxWidth: '360px',
                         letterSpacing: '-1.2px',
                         fontWeight: '700'
@@ -42,10 +40,8 @@ export default function SlideThree() {
                         Effortless Style for
                         Him
                     </Typography>
-                    <Typography variant='p' sx={{
+                    <Typography variant='body1' sx={{
                         maxWidth: '385px',
-                        fontSize: '16px',
-                        lineHeight: '24px',
                         letterSpacing: '0.21px',
                         color: 'white.light',
                     }}>
@@ -56,9 +52,6 @@ export default function SlideThree() {
                         width: 'fit-content',
                         backgroundColor: 'primary.lighter',
                         color: 'primary.darker',
-                        fontSize: '16px',
-                        lineHeight: '24px',
-                        letterSpacing: '0.21px',
                         py: '12px',
                         px: '24px',
                         borderRadius: '16px',

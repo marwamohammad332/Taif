@@ -82,17 +82,15 @@ export default function SlideTwo() {
                 }}>
 
 
-                    <Typography sx={{
+                    <Typography variant='body2' sx={{
                         width: 'fit-content',
                         color: 'warning.main',
-                        fontSize: '12px'
+                        
                     }}>
                         SEASONAL EVENT
                     </Typography>
 
-                    <Typography variant="h3" sx={{
-                        fontSize: '48px',
-                        lineHeight: '48px',
+                    <Typography variant="h2" sx={{
                         maxWidth: '360px',
                         letterSpacing: '-1.2px',
                         fontWeight: '700',
@@ -101,10 +99,8 @@ export default function SlideTwo() {
                         Up to 40% Off
 
                     </Typography>
-                    <Typography variant='p' sx={{
+                    <Typography variant='body1' sx={{
                         maxWidth: '385px',
-                        fontSize: '16px',
-                        lineHeight: '24px',
                         letterSpacing: '0.21px',
                         color: 'tertiary.main',
                     }}>
@@ -116,9 +112,6 @@ export default function SlideTwo() {
                         width: 'fit-content',
                         backgroundColor: 'warning.main',
                         color: 'white',
-                        fontSize: '12px',
-                        lineHeight: '20px',
-                        letterSpacing: '0.21px',
                         py: '12px',
                         px: '24px',
                         borderRadius: '16px',

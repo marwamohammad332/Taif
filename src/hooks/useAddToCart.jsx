@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React from 'react'
-import { useAuthStore } from '../store/useAuthStore';
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import authAxiosInstance from '../api/authAxiosInstance';
 

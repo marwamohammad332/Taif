@@ -37,7 +37,8 @@ export default function CartLayout() {
         }
     }}>
         <Paper sx={{
-            p:3
+            p:3,
+            borderRadius:3
         }}>
             <Box sx={{
             p: 3,

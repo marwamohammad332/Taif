@@ -9,7 +9,8 @@ export default function CartSummary({total}) {
         p:3,
         display:'flex',
         flexDirection:'column',
-        gap:3
+        gap:3,
+        borderRadius:3
     }}>
         <Box sx={{
         display:'flex',

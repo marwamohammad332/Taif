@@ -1,5 +1,4 @@
 import { create } from 'zustand'
-import React from 'react'
 
 export const useAuthStore = create( (set)=>({
     token: localStorage.getItem('token'),

@@ -1,0 +1,48 @@
+{
+
+    "navbar": {
+      "tagline": "Everything for your family",
+      "searchPlaceholder": "Search for baby care, clothing, essentials...",
+      "searchLabel": "Search",
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode"
+    },
+    "slideOne": {
+      "badge": "LIMITED TIME OFFERS",
+      "title": "Seasonal Family Savings",
+      "description": "Olive oil, soft home textiles, and everyday essentials for the whole family, up to 40% off.",
+      "button": "Shop all offers"
+    },
+    "slideTwo": {
+      "badge": "SEASONAL EVENT",
+      "title": "Up to 40% Off",
+      "description": "Curated essentials for babies, children, and parents across all seasonal favorites.",
+      "button": "Shop all offers",
+      "manShirtAlt": "Man blue shirt",
+      "babyOverallAlt": "Baby blue overall",
+      "bodyWashAlt": "Baby body wash"
+    },
+    "footer": {
+        "taif":"Taif",
+        "tagline": "Everything for your family",
+        "description": "Curated multi-category household essentials, ethical fashion, and authentic care products tailored for every generation.",
+        "facebookTooltip": "Our Facebook",
+        "instagramTooltip": "Our Instagram",
+        "emailTooltip": "Email us",
+        "quickLinks": "Quick Links",
+        "shopAll": "Shop All Products",
+        "newArrivals": "New Arrivals",
+        "bestSellers": "Best Sellers",
+        "offers": "Offers & Deals",
+        "contactDelivery": "Contact & Delivery Info",
+        "whatsapp": "WhatsApp",
+        "support": "Support",
+        "address": "Al-Irsal Street, Ramallah",
+        "delivery": "Jerusalem & West Bank express delivery within 24-48 hours.",
+        "visa": "Visa",
+        "masterCard": "MasterCard",
+        "cashOnDelivery": "Cash on Delivery",
+        "switchLanguage": "عربي",
+        "copyright": "© 2025 TAIF. Everything for your family. All rights reserved."
+    }
+}

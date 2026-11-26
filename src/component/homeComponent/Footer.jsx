@@ -12,13 +12,18 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
 import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 import { flushSync } from 'react-dom';
+import { useLanguageStore } from '../../store/languageStore';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const language = useLanguageStore((state)=>state.language);
+  const toggleLanguage = useLanguageStore((state)=>state.toggleLanguage);
+  const {t} = useTranslation();
   return (
     <>
       <Box sx={{
         py: 4,
-        backgroundColor: 'Footerbg.main'
+        backgroundColor: 'footerbg.main'
       }}>
         <Container>
           <Box sx={{
@@ -48,7 +53,7 @@ export default function Footer() {
                   lineHeight: '36px',
                   color: 'primary.main'
                 }}>
-                  TAIF
+                  {t("footer.taif")}
                 </Typography>
                 <Typography style={{
                   color: "tertiary.main",
@@ -114,7 +119,7 @@ export default function Footer() {
                 Contact & Delivery Info
               </Typography>
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 2 }}>
+                <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
                   <Box sx={{
                     borderRadius: 3, px: 2, py: 3, bgcolor: 'secondary.dark'
                   }}>
@@ -174,10 +179,10 @@ export default function Footer() {
                   <Chip sx={{ bgcolor: 'transparent',bgcolor:'secondary.darker',px:1 }} avatar={<Avatar sx={{ bgcolor: 'transparent' }}><PaymentIcon /></Avatar>} label="Visa" />
                   <Chip sx={{ bgcolor: 'transparent',bgcolor:'secondary.darker',px:1 }} avatar={<Avatar sx={{ bgcolor: 'transparent' }}><PaymentIcon /></Avatar>} label="MasterCard" />
                   <Chip sx={{ bgcolor: 'transparent',bgcolor:'success.light',px:1 }} avatar={<Avatar sx={{ bgcolor: 'transparent' }}><PaymentsOutlinedIcon /></Avatar>} label="Cash on Delivery" />
-                  <Chip clickable sx={{ bgcolor: 'transparent',bgcolor:'secondary.darker',py:3,px:1,ml:2 }} 
+                  <Chip clickable onClick={toggleLanguage} sx={{ bgcolor: 'transparent',bgcolor:'secondary.darker',borderRadius:10,py:3,px:1,ml:2 }} 
                   avatar={<Avatar sx={{ bgcolor: 'transparent' }}>
                     <TranslateOutlinedIcon />
-                    </Avatar>} label="English/العربية" />
+                    </Avatar>} label={language == "en" ?"عربي":"En"} />
                 </Box>
               </Box>
 

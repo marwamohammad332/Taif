@@ -24,9 +24,9 @@ const lightPalette = {
         dark: '#18232c'
     },
     navBackground: {
-        main: '#F7F9FF'
+        main: '#F7F9FFED'
     },
-    Footerbg:{
+    footerbg:{
         main:'#EDF4FF'
     },
     white: {
@@ -87,8 +87,9 @@ const darkPalette = {
         light: '#CBE5DC'
     },
     navBackground: {
-        main: '#141E27EB'
-    },Footerbg:{
+        main: '#141E27'
+    },
+    footerbg:{
         main:'#141E27'
     },
     background: {

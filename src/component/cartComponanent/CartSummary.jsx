@@ -47,7 +47,7 @@ export default function CartSummary({total}) {
         gap:1,
         py:2,
         background:'#264764',
-        color:'white',
+        color:'#ffffff',
         borderRadius:'9999px'
         
     }}>

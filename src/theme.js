@@ -26,6 +26,9 @@ const lightPalette = {
     navBackground: {
         main: '#F7F9FF'
     },
+    Footerbg:{
+        main:'#EDF4FF'
+    },
     white: {
         main: '#ffffff',
         dark: '#ffffff33',
@@ -46,7 +49,8 @@ const lightPalette = {
         default: '#f9f2f2'
     },
     text: {
-        primary: '#42474D'
+        primary: '#42474D',
+        dark:'#0E1D29'
     }
 }
 const darkPalette = {
@@ -84,6 +88,8 @@ const darkPalette = {
     },
     navBackground: {
         main: '#141E27EB'
+    },Footerbg:{
+        main:'#141E27'
     },
     background: {
         default: '#141E27',
@@ -107,12 +113,22 @@ export const getTheme = (mode) => {
                 lineHeight: '2.5rem',
                 fontWeight: '700'
             },
+            h4:{
+                fontSize: '1rem',
+                lineHeight: '2rem',
+                fontWeight: '600'
+            },
+             h5:{
+                fontSize: '0.875rem',
+                lineHeight: '1.25rem',
+                fontWeight: '600'
+            },
             body1: {
                 fontSize: '1rem',
                 lineHeight: '1.5rem'
             },
             body2: {
-                fontSize: '0.75rem',
+                fontSize: '0.75rem',//12px
                 lineHeight: '1rem',
             },
             button: {
